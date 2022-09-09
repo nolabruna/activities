@@ -11,15 +11,23 @@ let listaLinks = [
 ];
 //copiar o endereço das imagens do google
 
+function adicionarElemento(linkSite, linkImagem) {
+  let listaElemento = document.getElementById("listaFilmes");
+  listaElemento.innerHTML +=
+    "<a href=" + linkSite + "><img src=" + linkImagem + "></a>";
+}
+
 for (let i = 0; i < listaFilmes.length; i++) {
-  document.write(
-    "<a href=" + listaLinks[i] + "><img src=" + listaFilmes[i] + "></a>"
-  );
+  adicionarElemento(listaLinks[i], listaFilmes[i]);
 }
 
 function adicionar() {
-  const urlImagem = document.getElementById("urlImagem").value;
-  const urlSite = document.getElementById("urlSite").value;
-  document.body.innerHTML +=
-    "<a href=" + urlSite + "><img src=" + urlImagem + "></a>";
+  const imagem = document.getElementById("urlImagem").value;
+  const site = document.getElementById("urlSite").value;
+  //guardar os filmes
+  if (!listaFilmes.includes(imagem)) {
+    adicionarElemento(site, imagem);
+    listaFilmes.push(imagem);
+    listaLinks.push(site);
+  }
 }

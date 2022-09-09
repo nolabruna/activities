@@ -34,7 +34,7 @@ body {
   right: 10px;
 }
 
-body > a {
+#listaFilmes > a {
   margin: 0 10px;
 }
 
